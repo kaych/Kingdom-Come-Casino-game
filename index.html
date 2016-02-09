@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thar Betting Game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Lato:400,300'>
+    <!-- <script src="betting_game.js"></script> -->
+    <script src="jquery-2.2.0.min.js"></script>
+    <script src="application.js"></script>
+  </head>
+  <body>
+    <h1>Welcome to Kingdom Come Casino</h1>
+    <hr/>
+    <div class="container">
+      <div class="game">
+        <button type="submit" class="start-game">Letz gamble!</button>
+        <form class="gambling">
+          <div class="start-game">
+            <p>What is your starting bet?</p>
+            <input type="text" class="player-bet" placeholder="Between $5-10">
+          </div>
+          <div class="betting-guess">
+            <p>Guess a number between 1 and 10.</p>
+            <input type="text" class="player-guess" placeholder="Gamblez awayyyyy"><br>
+            <button type="submit" class="guess">Submit</button>
+          </div>
+        </form>
+        <div class="correct-guess">
+          <p>Correct! You win your bet!</p>
+        </div>
+        <div class="wrong-guess">
+          <p>Oh no, that was wrong. You lose the moneys.</p>
+        </div>
+        <button type="hidden" class="restart">Restart?</button>
+      </div>
+    </div>
+  </body>
+</html>

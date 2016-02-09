@@ -1,0 +1,44 @@
+body {
+  font-family: 'Lato';
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  background-color: red;
+  color: #FFFFFF;
+  padding: 15px;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.game {
+  background-color: #d3d3d3;
+  text-align: center;
+}
+
+form.gambling {
+  display: none;
+}
+
+.container {
+  margin-left: 200px;
+  margin-right: 200px;
+  text-align: center;
+}
+
+.correct-guess {
+  color: green;
+  display: none;
+}
+
+.wrong-guess {
+  color: red;
+  display: none;
+}
+
+.restart {
+  display: none;
+}

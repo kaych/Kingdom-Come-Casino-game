@@ -42,7 +42,18 @@ form.gambling {
   display: none;
 }
 
+.almost-guess {
+  color: blue;
+  display: none;
+}
+
 .wrong-guess {
+  color: red;
+  display: none;
+}
+
+.game-over {
+  font-weight: bold;
   color: red;
   display: none;
 }

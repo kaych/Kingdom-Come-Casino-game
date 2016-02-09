@@ -1,13 +1,17 @@
 $(document).ready(function() {
   var amount = 100;
 
-  $('.start-game').on('click', function() {
+  function updateBankAmt() {
+    var bank = $('<p>')
+      .text('Your current bank amount is $'+amount+'.')
+      .addClass('bank-amount');
+    bank.insertBefore($('.gambling'));
+  }
+
+  $('.start-game').one('click', function() {
     var test = $('div.game').children('p.bank-amount');
     if(test.length === 0) {
-      var bank = $('<p>')
-      .text('Your current bank amount is $'+amount+'.')
-      .addClass('bank-amount')
-      .insertBefore($('.gambling'));
+      updateBankAmt();
     }
     $(this).closest('.game').find('.gambling').show();
   });
@@ -27,6 +31,10 @@ $(document).ready(function() {
       $(this).closest('.game').find('.correct-guess').show()
       .fadeOut(1000);
     }
+    else if(playerGuess === randomNumber + 1 || playerGuess === randomNumber - 1) {
+      $(this).closest('.game').find('.almost-guess').show()
+      .fadeOut(1000);
+    }
     else {
       amount -= playerBet;
       $(this).closest('.game').find('.wrong-guess').show()
@@ -34,21 +42,19 @@ $(document).ready(function() {
     }
 
     $('.bank-amount').remove();
-    var newBank = $('<p>')
-    .text('Your current bank amount is at $'+amount+'.')
-    .addClass('bank-amount')
-    .insertBefore($('.gambling'));
+    updateBankAmt();
 
     if(amount === 0) {
+      $(this).closest('.game').find('.game-over').show();
       $(this).closest('.game').find('.restart').show();
+      $(this).closest('.game').find('.gambling').hide();
       $('.restart').on('click', function() {
         amount = 100;
         $('.bank-amount').remove();
-        var newBank = $('<p>')
-        .text('Your current bank amount is at $'+amount+'.')
-        .addClass('bank-amount')
-        .insertBefore($('.gambling'))
-        $(this).remove();
+        updateBankAmt();
+        $(this).closest('.game').find('.gambling').show();
+        $('.game-over').hide();
+        $(this).hide();
       });
     }
     
